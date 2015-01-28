@@ -18,6 +18,9 @@ from baxter_core_msgs.srv import (
     SolvePositionIKRequest,
 )
 
+### FILE PATH ###
+PATH = "/home/andreea/BaxterProject/scaledLinesDetected2.txt"
+
 ### CONSTANTS ###
 Z_COORD = -0.0230625941977
 ROTATION = [-0.124120878028, 0.991890846532, 0.00478437869368,-0.0269010394494]
@@ -102,7 +105,7 @@ def main():
 	hdr = Header(stamp=rospy.Time.now(), frame_id='base')
 	arm = baxter_interface.Limb('left')
 
-	file = open("/home/andreea/BaxterProject/scaledLinesDetected2.txt")
+	file = open(PATH)
 	current = arm.endpoint_pose()
 	current_pos = [current['position'].x,current['position'].y,current['position'].z]
 	for line in file:

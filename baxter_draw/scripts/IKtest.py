@@ -7,6 +7,9 @@ import sys
 import baxter_interface
 from baxter_pykdl import baxter_kinematics
 
+### FILE PATH ###
+PATH = "/home/andreea/BaxterProject/scaledLinesDetected2.txt"
+
 ### CONSTANTS ###
 Z_COORD = -0.0230625941977
 ROTATION = [-0.124120878028, 0.991890846532, 0.00478437869368,-0.0269010394494]
@@ -52,7 +55,7 @@ def main():
 	print '*** Baxter PyKDL Kinematics ***\n'
 	
 	
-	file = open("/home/andreea/BaxterProject/scaledLinesDetected2.txt")
+	file = open(PATH)
 	current = arm.endpoint_pose()
 	current_pos = [current['position'].x,current['position'].y,current['position'].z]
 	#print current_pos
