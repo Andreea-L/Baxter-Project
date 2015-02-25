@@ -4,6 +4,10 @@ import rospy
 import numpy
 import sys
 
+
+from sensor_msgs.msg import Range
+import std_msgs.msg
+
 import baxter_interface
 from baxter_pykdl import baxter_kinematics
 
@@ -16,6 +20,18 @@ inPosition = False;
 joints = []
 current_pos = []
 arm = None
+
+
+def callback(data):
+    rospy.loginfo(rospy.get_caller_id()+"I heard %s",data)
+
+def listener():
+    #rospy.init_node('listener', anonymous=True)
+    rospy.Subscriber("/robot/range/left_hand_range", Range, callback)
+    rospy.spin()
+
+
+
 
 
 def raise_pen():
@@ -61,7 +77,7 @@ def main():
 
 	### SETUP ###
 	global joints, arm, current_pos, inPosition
-	rospy.init_node('baxter_kinematics')
+	rospy.init_node('baxter_draw')
 	arm = baxter_interface.Limb('left')
 	joints = arm.joint_names()
 
