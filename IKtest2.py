@@ -199,12 +199,12 @@ def main():
 	for j in xrange(len(poses)):
 			limb_joints = dict(zip(resp.joints[j].name, resp.joints[j].position))
 			arm.move_to_joint_positions(limb_joints)
-			rospy.sleep(1)
+			rospy.sleep(0.7)
 			current_joints = arm.joint_angle("right_s1")
 			print "Current shoulder joint angle: "+str(current_joints)
 			joint_command = {"right_s1": current_joints -0.2}
 			arm.move_to_joint_positions(joint_command)
-			rospy.sleep(1)
+			rospy.sleep(0.7)
 			print "Current shoulder joint angle: "+str(arm.joint_angle("right_s1"))
 	# ### PROCESS FILE ###
 	# for line in file:
