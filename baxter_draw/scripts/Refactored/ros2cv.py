@@ -77,7 +77,7 @@ class ros2cv:
 			print e
 
 def main(args):
-	global detector, y, yh, x,xw, scaling
+	global detector, y, yh, x,xw, scaling, cloth
 	ic = ros2cv()
 	rospy.init_node('ros2cv', anonymous = True)
 	print "Make sure you are running me from level3_baxter/scripts"
@@ -102,7 +102,6 @@ def main(args):
 			break
 		if ch == "change":
 			print "Changing detector"
-			global cloth
 			cloth = -cloth + 1 		# Toggle dark background detector
 			
 	# Scale image
