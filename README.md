@@ -1,5 +1,4 @@
-*Baxter, the ”Robot Artist”
-=============
+#Baxter, the ”Robot Artist”
 University of Glasgow - Level 3 Team Project
 
 The purpose of the project was to create a complex software system that would
